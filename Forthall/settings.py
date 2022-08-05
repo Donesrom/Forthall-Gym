@@ -48,6 +48,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -143,5 +144,9 @@ MEDIA_ROOT = os.path.join(BASE_DIR, '')
 
 TINYMCE_JS_URL = os.path.join(STATIC_URL, "tinymce/tinymce.min.js")
 TINYMCE_COMPRESSOR = False
+
+
+#compression and caching support
+STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 
 django_heroku.settings(locals())
