@@ -1,1 +1,1 @@
-web: gunicorn Forthall.wsgi
+waitress-serve --listen=*:8000 Forthall.wsgi:application
